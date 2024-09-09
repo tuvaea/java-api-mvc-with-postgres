@@ -43,12 +43,12 @@ public class EmployeeController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Employee update(@PathVariable (name = "id") long id, @RequestBody Employee Employee) throws SQLException {
+    public Employee update(@PathVariable (name = "id") long id, @RequestBody Employee employee) throws SQLException {
         Employee toBeUpdated = this.employees.get(id);
         if (toBeUpdated == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Not found");
         }
-        return this.employees.update(id, Employee);
+        return this.employees.update(id, employee);
     }
 
     @DeleteMapping("/{id}")
